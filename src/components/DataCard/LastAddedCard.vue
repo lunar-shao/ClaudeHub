@@ -3,7 +3,7 @@ import DataCard from "@/components/DataCard/DataCard.vue";
 </script>
 
 <template>
-  <DataCard title="New entries" icon="/logo/sparkles.webp">
+  <DataCard title="Last added" icon="/logo/sparkles.webp">
     <n-list hoverable clickable>
       <n-list-item>
         <n-thing

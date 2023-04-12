@@ -5,7 +5,7 @@ import DataCard from "@/components/DataCard/DataCard.vue";
 <template>
   <DataCard
     class="assistant-card"
-    title="Top of the Moment"
+    title="Favorites of the Moment"
     icon="/logo/trophy.webp"
     color="#fafafa"
   >

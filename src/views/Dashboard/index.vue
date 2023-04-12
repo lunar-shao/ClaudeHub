@@ -1,7 +1,7 @@
 <script setup>
-import NewsCard from "@/components/DataCard/NewsCard.vue";
+import LastAddedCard from "@/components/DataCard/LastAddedCard.vue";
 import AllEntriesCard from "@/components/DataCard/AllEntriesCard.vue";
-import TopOfMomentCard from "@/components/DataCard/TopOfMomentCard.vue";
+import FavoritesOfMomentCard from "@/components/DataCard/FavoritesOfMomentCard.vue";
 import MainLayout from "@/layout/MainLayout.vue";
 </script>
 
@@ -18,10 +18,10 @@ import MainLayout from "@/layout/MainLayout.vue";
 
       <n-grid y-gap="24" x-gap="24" cols="1 768:2 1000:3">
         <n-gi span="2">
-          <TopOfMomentCard />
+          <FavoritesOfMomentCard />
         </n-gi>
         <n-gi>
-          <NewsCard />
+          <LastAddedCard />
         </n-gi>
         <n-gi span="3">
           <AllEntriesCard />
