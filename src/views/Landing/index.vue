@@ -8,6 +8,11 @@
 
     <n-grid :cols="1" x-gap="12">
       <n-gi class="welcome">
+        <n-image
+          width="100"
+          src="/favicon.webp"
+          style="background-color: white"
+        />
         <h1>Welcome to Claude Hub</h1>
         <p>The movie manager for a Claude</p>
         <n-space>
@@ -22,11 +27,11 @@
         </n-space>
         <n-divider />
         <p class="muteted">
-          We're excited to announce that Claude Hub is now in a closed beta phase.
-          This means that we're inviting a select group of users to test our
-          application and provide feedback before its official launch. Thank you
-          for your support and we can't wait to share our vision of Claude with
-          the world!
+          We're excited to announce that Claude Hub is now in a closed beta
+          phase. This means that we're inviting a select group of users to test
+          our application and provide feedback before its official launch. Thank
+          you for your support and we can't wait to share our vision of Claude
+          with the world!
         </p>
       </n-gi>
     </n-grid>
