@@ -1,0 +1,23 @@
+
+html, body
+  font-size: 16px
+  color: rgb(31, 34, 37)
+
+.lighter
+  color: #858bac
+
+
+$mobile: 500px
+$tablet: 768px
+$desktop: 1024px
+
+=fromTablet()
+  @media (min-width: $tablet)
+    @content
+
+=fromDesktop()
+  @media (min-width: $desktop)
+    @content
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
