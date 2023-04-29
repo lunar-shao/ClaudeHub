@@ -1,22 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import { CogOutline } from "@vicons/ionicons5";
 const props = defineProps({
   title: String,
   icon: String,
   color: String,
 });
-console.log(props);
 </script>
 
 <template>
   <n-card class="box">
     <n-thing class="box">
       <template #avatar>
-        <n-avatar
-          :style="`--n-color: ${props.color}`"
-          class="avatar-color"
-          :src="props.icon"
-        />
+        <n-avatar :style="`--n-color: ${props.color}`" class="avatar-color" :src="props.icon" />
       </template>
       <template #header> {{ props.title }} </template>
       <template #header-extra>

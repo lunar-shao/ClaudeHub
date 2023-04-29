@@ -1,53 +1,25 @@
 <template>
-  <n-radio-group
-    v-model:value="size"
-    name="left-size"
-    style="margin-bottom: 12px"
-  >
+  <n-radio-group v-model:value="size" name="left-size" style="margin-bottom: 12px">
     <n-radio-button value="small"> Small </n-radio-button>
     <n-radio-button value="medium"> Medium </n-radio-button>
     <n-radio-button value="large"> Large </n-radio-button>
   </n-radio-group>
-  <n-form
-    ref="formRef"
-    :model="model"
-    :rules="rules"
-    :size="size"
-    label-placement="top"
-  >
+  <n-form ref="formRef" :model="model" :rules="rules" :size="size" label-placement="top">
     <n-grid :span="24" :x-gap="24">
       <n-form-item-gi :span="12" label="Input" path="inputValue">
         <n-input v-model:value="model.inputValue" placeholder="Input" />
       </n-form-item-gi>
       <n-form-item-gi :span="12" label="Textarea" path="textareaValue">
-        <n-input
-          v-model:value="model.textareaValue"
-          placeholder="Textarea"
-          type="textarea"
-          :autosize="{
+        <n-input v-model:value="model.textareaValue" placeholder="Textarea" type="textarea" :autosize="{
             minRows: 3,
             maxRows: 5,
-          }"
-        />
+          }" />
       </n-form-item-gi>
       <n-form-item-gi :span="12" label="Select" path="selectValue">
-        <n-select
-          v-model:value="model.selectValue"
-          placeholder="Select"
-          :options="generalOptions"
-        />
+        <n-select v-model:value="model.selectValue" placeholder="Select" :options="generalOptions" />
       </n-form-item-gi>
-      <n-form-item-gi
-        :span="12"
-        label="Multiple Select"
-        path="multipleSelectValue"
-      >
-        <n-select
-          v-model:value="model.multipleSelectValue"
-          placeholder="Select"
-          :options="generalOptions"
-          multiple
-        />
+      <n-form-item-gi :span="12" label="Multiple Select" path="multipleSelectValue">
+        <n-select v-model:value="model.multipleSelectValue" placeholder="Select" :options="generalOptions" multiple />
       </n-form-item-gi>
       <n-form-item-gi :span="12" label="Datetime" path="datetimeValue">
         <n-date-picker v-model:value="model.datetimeValue" type="datetime" />
@@ -55,11 +27,7 @@
       <n-form-item-gi :span="12" label="Switch" path="switchValue">
         <n-switch v-model:value="model.switchValue" />
       </n-form-item-gi>
-      <n-form-item-gi
-        :span="12"
-        label="Checkbox Group"
-        path="checkboxGroupValue"
-      >
+      <n-form-item-gi :span="12" label="Checkbox Group" path="checkboxGroupValue">
         <n-checkbox-group v-model:value="model.checkboxGroupValue">
           <n-space>
             <n-checkbox value="Option 1"> Option 1 </n-checkbox>
@@ -77,11 +45,7 @@
           </n-space>
         </n-radio-group>
       </n-form-item-gi>
-      <n-form-item-gi
-        :span="12"
-        label="Radio Button Group"
-        path="radioGroupValue"
-      >
+      <n-form-item-gi :span="12" label="Radio Button Group" path="radioGroupValue">
         <n-radio-group v-model:value="model.radioGroupValue" name="radiogroup2">
           <n-radio-button value="Radio 1">Radio 1</n-radio-button>
           <n-radio-button value="Radio 2"> Radio 2 </n-radio-button>
@@ -98,25 +62,13 @@
         <n-slider v-model:value="model.sliderValue" :step="5" />
       </n-form-item-gi>
       <n-form-item-gi :span="14" label="Transfer" path="transferValue">
-        <n-transfer
-          v-model:value="model.transferValue"
-          style="width: 100%"
-          :options="generalOptions"
-        />
+        <n-transfer v-model:value="model.transferValue" style="width: 100%" :options="generalOptions" />
       </n-form-item-gi>
       <n-form-item-gi :span="5" label="Nested Path" path="nestedValue.path1">
-        <n-cascader
-          v-model:value="model.nestedValue.path1"
-          placeholder="Nested Path 1"
-          :options="cascaderOptions"
-        />
+        <n-cascader v-model:value="model.nestedValue.path1" placeholder="Nested Path 1" :options="cascaderOptions" />
       </n-form-item-gi>
       <n-form-item-gi :span="5" path="nestedValue.path2">
-        <n-select
-          v-model:value="model.nestedValue.path2"
-          placeholder="Nested Path 2"
-          :options="generalOptions"
-        />
+        <n-select v-model:value="model.nestedValue.path2" placeholder="Nested Path 2" :options="generalOptions" />
       </n-form-item-gi>
       <n-gi :span="24">
         <div style="display: flex; justify-content: flex-end">
@@ -128,10 +80,8 @@
     </n-grid>
   </n-form>
 
-  <pre
-    >{{ JSON.stringify(model, null, 2) }}
-        </pre
-  >
+  <pre>{{ JSON.stringify(model, null, 2) }}
+        </pre>
 </template>
 
 <script>
@@ -270,7 +220,6 @@ export default defineComponent({
           if (!errors) {
             message.success("Valid");
           } else {
-            console.log(errors);
             message.error("Invalid");
           }
         });
