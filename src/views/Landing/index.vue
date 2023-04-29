@@ -8,11 +8,7 @@
 
     <n-grid :cols="1" x-gap="12">
       <n-gi class="welcome">
-        <n-image
-          width="100"
-          src="/favicon.webp"
-          style="background-color: white"
-        />
+        <n-image width="100" src="/favicon.webp" style="background-color: white" />
         <h1>Welcome to Claude Hub</h1>
         <p>The movie manager for a Claude</p>
         <n-space>
@@ -40,6 +36,13 @@
 
 <script setup>
 import { LogoGoogle } from "@vicons/ionicons5";
+import { useAuthStore } from "../../stores/auth";
+
+const authStore = useAuthStore();
+
+authStore.signInPopup();
+
+
 </script>
 
 <style lang="sass" scoped>
