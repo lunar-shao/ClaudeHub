@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import LastAddedCard from "@/components/DataCard/LastAddedCard.vue";
 import AllEntriesCard from "@/components/DataCard/AllEntriesCard.vue";
 import FavoritesOfMomentCard from "@/components/DataCard/FavoritesOfMomentCard.vue";

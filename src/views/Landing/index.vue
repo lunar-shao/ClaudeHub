@@ -12,7 +12,7 @@
         <h1>Welcome to Claude Hub</h1>
         <p>The movie manager for a Claude</p>
         <n-space>
-          <n-button @click="authStore.signInPopup" type="primary">
+          <n-button @click="signInPopup" type="primary">
             <template #icon>
               <n-icon>
                 <LogoGoogle />
@@ -36,9 +36,8 @@
 
 <script setup lang="ts">
 import { LogoGoogle } from "@vicons/ionicons5";
-import { useAuthStore } from "../../stores/auth";
-
-const authStore = useAuthStore();
+import { useAuthStore } from "@/stores/auth";
+const { signInPopup } = useAuthStore()
 </script>
 
 <style lang="sass" scoped>

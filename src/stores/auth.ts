@@ -1,7 +1,12 @@
 import { ref, type Ref } from "vue";
 import { defineStore } from "pinia";
 
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 import { useFirebaseStore } from "./firebase";
 
 const provider = new GoogleAuthProvider();
@@ -35,8 +40,12 @@ export const useAuthStore = defineStore("auth", () => {
 
   async function signInPopup() {
     if (userData.value?.accessToken) {
+      // Emit same value
+      userData.value = { ...userData.value };
       return;
     }
+    loading.value = true;
+    error.value = false;
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -51,11 +60,30 @@ export const useAuthStore = defineStore("auth", () => {
           error.value = false;
         }
       })
-      .catch((error) => {
+      .catch((err) => {
         error.value = {
-          errorCode: error.code,
-          errorMessage: error.message,
-        } as AuthError;
+          errorCode: err.code,
+          errorMessage: err.message,
+        };
+      })
+      .finally(() => {
+        loading.value = false;
+      });
+  }
+
+  function logOut() {
+    console.log("logOut");
+
+    loading.value = true;
+    error.value = false;
+    signOut(auth)
+      .then(() => {
+        userData.value = undefined;
+        userData.value = undefined;
+        localStorage.setItem("userData", "");
+      })
+      .catch((err) => {
+        error.value = err;
       })
       .finally(() => {
         loading.value = false;
@@ -67,5 +95,6 @@ export const useAuthStore = defineStore("auth", () => {
     loading,
     userData,
     signInPopup,
+    logOut,
   };
 });
