@@ -1,15 +1,21 @@
 <template>
   <n-dropdown :options="options">
-    <n-avatar round size="medium" src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
+    <n-avatar round size="medium" :src="userData?.photoURL" referrerpolicy="no-referrer" />
   </n-dropdown>
 </template>
 
-<script>
-import { h, defineComponent } from "vue";
+<script setup lang="ts">
+import { h } from "vue";
 import { NIcon } from "naive-ui";
 import { LogOutOutline as LogoutIcon } from "@vicons/ionicons5";
+import { useAuthStore } from "../stores/auth";
 
-const renderIcon = (icon) => {
+const { userData } = useAuthStore();
+
+console.log(userData);
+
+
+const renderIcon = (icon: any) => {
   return () => {
     return h(NIcon, null, {
       default: () => h(icon),
@@ -17,17 +23,11 @@ const renderIcon = (icon) => {
   };
 };
 
-export default defineComponent({
-  setup() {
-    return {
-      options: [
-        {
-          label: "Logout",
-          key: "logout",
-          icon: renderIcon(LogoutIcon),
-        },
-      ],
-    };
+const options = [
+  {
+    label: "Logout",
+    key: "logout",
+    icon: renderIcon(LogoutIcon),
   },
-});
+];
 </script>

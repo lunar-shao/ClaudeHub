@@ -12,7 +12,7 @@
         <h1>Welcome to Claude Hub</h1>
         <p>The movie manager for a Claude</p>
         <n-space>
-          <n-button tag="a" href="/dash" type="primary">
+          <n-button @click="authStore.signInPopup" type="primary">
             <template #icon>
               <n-icon>
                 <LogoGoogle />
@@ -34,15 +34,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { LogoGoogle } from "@vicons/ionicons5";
 import { useAuthStore } from "../../stores/auth";
 
 const authStore = useAuthStore();
-
-authStore.signInPopup();
-
-
 </script>
 
 <style lang="sass" scoped>
