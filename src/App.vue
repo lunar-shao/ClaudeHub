@@ -9,9 +9,11 @@ import { useRouter } from 'vue-router';
 import { useAuthStore } from './stores/auth';
 import { watch } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useFirestoreStore } from './stores/database';
 
 const router = useRouter()
 const authStore = useAuthStore()
+const firestoreStore = useFirestoreStore()
 const { userData } = storeToRefs(authStore)
 
 const redirectOnLogin = () => {
