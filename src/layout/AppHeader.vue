@@ -1,5 +1,6 @@
 <script setup>
 import { useApiStore } from "@/stores/api";
+import AppHeaderUser from "./AppHeaderUser.vue";
 const api = useApiStore();
 </script>
 
@@ -8,16 +9,11 @@ const api = useApiStore();
     <template #avatar>
       <n-avatar src="/favicon.webp" style="background-color: white" />
     </template>
-    <template #extra>
+    <template #default>
       <n-space>
         <template v-if="api.loading">
-          <n-skeleton
-            v-for="i in 3"
-            :key="i"
-            :width="isMobile ? '42px' : '78px'"
-            :size="isMobile ? 'tiny' : 'medium'"
-            :sharp="false"
-          />
+          <n-skeleton v-for="i in 3" :key="i" :width="isMobile ? '42px' : '78px'" :size="isMobile ? 'tiny' : 'medium'"
+            :sharp="false" />
         </template>
         <template v-else>
           <router-link to="/">
@@ -31,6 +27,9 @@ const api = useApiStore();
           </router-link>
         </template>
       </n-space>
+    </template>
+    <template #extra>
+      <AppHeaderUser />
     </template>
   </n-page-header>
 </template>

@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+import { markRaw } from "vue";
 import {
   create,
   NIcon,
@@ -47,7 +48,6 @@ import {
   NTimePicker,
   NSlider,
   NCheckbox,
-  NCalendar,
   NInputNumber,
   NDatePicker,
   NSwitch,
@@ -60,6 +60,7 @@ import {
   NList,
   NListItem,
   NTag,
+  NH3,
 } from "naive-ui";
 
 import App from "@/App.vue";
@@ -127,12 +128,19 @@ const naive = create({
     NList,
     NListItem,
     NTag,
+    NH3,
   ],
+});
+
+const pinia = createPinia();
+
+pinia.use(({ store }) => {
+  store.$router = markRaw(router);
 });
 
 const app = createApp(App);
 
-app.use(createPinia());
+app.use(pinia);
 app.use(naive);
 app.use(router);
 

@@ -8,3 +8,15 @@ The movie manager for a Claude
 yarn
 yarn dev
 ```
+
+## Deployement
+
+(Automatic for cloudfront)
+
+### Firebase
+
+```sh
+yarn
+yarn build
+firebase deploy
+```

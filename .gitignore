@@ -1,8 +1,10 @@
 .DS_Store
 node_modules
 /dist
+/script/build
 /dev-dist
 
+/script/serviceAccountKey.json
 
 # local env files
 .env.local
